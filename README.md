@@ -4,7 +4,7 @@ This repository contains the R source code and a simulation protocol document fo
 
 **_Incorporating therapist capacity, availability and turnover in trials of therapist-delivered interventions: Non-orthogonal factorial designs_**
 
-by **_Arpan Singh_**, **_Steven G. Gilmour_**, and **_Rebecca E. A. Walwyn_**.
+by **_Arpan Singh_**, **_[Steven G. Gilmour](https://www.kcl.ac.uk/people/steven-gilmour)_**, and **_[Rebecca E. A. Walwyn](https://medicinehealth.leeds.ac.uk/medicine/staff/860/professor-rebecca-walwyn)_**.
 
 The paper provides the methodological foundation for randomisation strategies used in trials of practitioner-delivered interventions (e.g., psychotherapy, physiotherapy, and surgery). It proposes three novel randomisation methods that explicitly account for practical constraints faced by practitioners (hereafter referred to as **therapists**), including therapist capacity, availability, and turnover.
 
@@ -17,7 +17,7 @@ These methods are compared with existing randomisation strategies in terms of:
 
 All scripts required to reproduce the simulation results and figures presented in the paper are included in this repository.
 
-**Paper:** LINK
+**Paper:** [LINK](https://arxiv.org/abs/2610.26321)
 
 ---
 
