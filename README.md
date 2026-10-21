@@ -12,8 +12,8 @@ As the number of simulations or the sample size increases, the computational bur
 
 These methods are compared with existing randomisation strategies in terms of:
 
-- **Operational efficiency**, measured by the **time to target recruitment**, and
-- **Statistical efficiency**, evaluated through the **precision of inference** obtained from the subsequent analysis.
+- **Operational efficiency**, measured by the **randomisation time to target**, and
+- **Statistical efficiency**, evaluated through the **statistical precision and inference** obtained from the subsequent analysis.
 
 All scripts required to reproduce the simulation results and figures presented in the paper are included in this repository.
 
