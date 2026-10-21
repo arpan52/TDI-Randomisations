@@ -2,7 +2,7 @@
 
 This repository contains the R source code and a simulation protocol document for all simulation studies conducted in the paper:
 
-**_Non-Orthogonal Factorial Designs for Trials of Therapist-Delivered Interventions: Allowing for Therapist Capacity, Availability and Turnover_**
+**_Incorporating therapist capacity, availability and turnover in trials of therapist-delivered interventions: Non-orthogonal factorial designs_**
 
 by **_Arpan Singh_**, **_Steven G. Gilmour_**, and **_Rebecca E. A. Walwyn_**.
 
@@ -23,7 +23,37 @@ All scripts required to reproduce the simulation results and figures presented i
 
 # 📘 Description of the Code
 
-All simulation studies in this repository are based on six randomisation strategies used to generate a trial design and two statistical models used to generate synthetic datasets from each of these designs. The generated data are then analysed to assess the performance of all six novel and existing randomisation methods. Details of these statistical models and their parameters can be found in the original paper.
+All simulation studies in this repository consider six randomisation strategies (three existing and three novel) to generate trial designs. Two statistical models are used to generate synthetic datasets under each design. The generated datasets are then analysed to evaluate and compare the performance of all six randomisation strategies.
+
+Details of the statistical models and their parameter settings are provided in the [original paper](https://arxiv.org/abs/2610.26321).
+
+**Note on naming conventions:** The names used in the code differ from those used in the original article to make it easier to identify the source of each randomisation strategy. For example, `IBD` refers to the strategy based on an incomplete block design.
+
+The following table maps the names used in the code to those used in the original article.
+
+| Name in code | Name in original article |
+|:-------------|:-------------------------|
+| `E1`         | `Wal25`                  |
+| `E2`         | `SPP2`                   |
+| `E3`         | `Non.rand`               |
+| `N1`         | `IBD`                    |
+| `N2`         | `Flexible`               |
+| `N3`         | `Flex.SPP2`              |
+
+## 💻 Use of the Codes
+
+The following table provides a brief description of the codes used in the simulation studies.
+
+| Code name | Description |
+|:----------|:------------|
+| `HPC_code_model_1_6_rands_multicentre_simulate_D_and_A_25.12.25` | Data generation and model fitting using Model 1 |
+| `HPC_code_model_2_6_rands_multicentre_simulate_D_and_A_25.12.25` | Data generation and model fitting using Model 2 |
+| `HPC_code_Gen_model_2_Fit_model_1_6_rands_multicentre_simulate_D_and_A_31.12.25` | Data generation using Model 2 and model fitting using Model 1 |
+| `HPC_code_Gen_model_1_Fit_model_2_6_rands_multicentre_simulate_D_and_A_31.12.25` | Data generation using Model 1 and model fitting using Model 2 |
+| `HPC_model_1_Singularities` | Calculation of the proportion of boundary estimates obtained when fitting Model 1 |
+| `HPC_model_2_Singularities` | Calculation of the proportion of boundary estimates obtained when fitting Model 2 |
+| `Other codes` | Helper codes for combining simulation results generated across multiple array jobs on the HPC server |
+
 
 ---
 
@@ -94,7 +124,7 @@ This vector contains the average values of the matrix `time_to_target`, which ha
 
 The *(i, j)*-th entry of `time_to_target` represents the number of recruitment batches required by the *j*-th randomisation method in the *i*-th simulation to achieve the target sample size `N`, while satisfying the therapist capacity, availability, and turnover constraints specified by the input parameters.
 
-This quantity is referred to as the **Recruitment Time to Target** in the paper.
+This quantity is referred to as the **Randomisation time to Target** in the paper.
 
 The reported output, `time_to_target_avg`, is obtained by averaging each column of `time_to_target` over the `n_sim` simulation runs.
 
@@ -104,7 +134,7 @@ A typical output is shown below.
 |----------:|------:|---------:|------:|----:|----------:|
 | 7.2 | 6.0 | 7.2 | 7.2 | 11.1 | 7.3 |
 
-For example, the average recruitment time to target under the **IBD** randomisation strategy is **11.1** batches for the specified input parameter values.
+For example, the average randomisation time to target under the **IBD** randomisation strategy is **11.1** batches for the specified input parameter values.
 
 ---
 
@@ -132,7 +162,7 @@ The output columns are described below.
 | `th` | Average estimate of `sig2_T` |
 | `it` | Average estimate of `sig2_IT` |
 | `t2_er` | Type II error rate |
-| `bdry` | Proportion of simulations in which one or more random-effect variance estimates were equal to zero when the corresponding true variance was non-zero |
+| `bdry` | Boundary estimates, i.e., Proportion of simulations in which one or more random-effect variance estimates were equal to zero when the corresponding true variance was non-zero |
 | `fail` | Proportion of REML fitting failures |
 | `mse_marg` | Average marginal mean squared error |
 | `b` | Average estimate of `sig2_B` |
